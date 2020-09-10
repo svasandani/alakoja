@@ -1,0 +1,280 @@
+:root {
+    --logo-color-1: #a33841;
+    --contrast-color: #d4e4ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Kumbh Sans";
+    scroll-behavior: smooth;
+}
+
+/* heading */
+
+h1 {
+    font-family: "Gilda Display";
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 1.1em;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 1.2em;
+    padding-top: 15vh;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+a::after {
+    content: '';
+    width: 0%;
+    background: black;
+    height: 1px;
+    position: absolute;
+    left: 0%;
+    bottom: -1px;
+    transition: 0.1s linear;
+}
+
+a:hover::after {
+    width: 25%;
+    transition: 0.1s linear;
+}
+
+a:active::after {
+    width: 100%;
+    transition: 0.1s linear;
+}
+
+/* layout */
+
+header {
+    height: 25vh;
+    padding: 7.5vh;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    position: fixed;
+    background: white;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    padding: 15vh;
+    transition: 0.1s linear;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 6.5vh;
+    }
+
+    nav {
+        padding: 5vh;
+    }
+}
+
+nav.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.1s linear;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 10px;
+    grid-gap: 10px;
+}
+
+main {
+    padding: 5%;
+}
+
+.hero {
+    height: 45vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.work-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.work-card {
+    width: 50%;
+    height: 30vh;
+    position: relative;
+    transition: 0.1s linear;
+}
+
+@media (max-width: 768px) {
+    .work-card {
+        width: 100%;
+    }
+}
+
+.work-card:hover {
+    filter: contrast(1.2) saturate(1.1);
+    transition: 0.1s linear;
+}
+
+.work-card:hover h4 {
+    left: 45%;
+    transition: 0.1s linear;
+}
+
+.work-card a {
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.work-card img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.work-card h4 {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.7em;
+    bottom: 2.2em;
+    left: 40%;
+    color: white;
+    z-index: 2;
+    transition: 0.1s linear;
+    
+}
+
+.work-card h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 35%;
+    background: black;
+    width: 100%;
+    height: 66%;
+    z-index: -1;
+}
+
+footer {
+    padding: 7vh;
+    height: 30vh;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+/* util */
+
+.nav-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    font-size: 2em;
+    z-index: 101;
+    padding: 5px;
+    padding-top: 9px;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+@media (max-width: 768px) {
+    .hero-img {
+        width: auto;
+        height: 100%;
+        left: -45%;
+    }
+}
+
+
+.cta-label {
+    font-size: 1.8em;
+    color: #242424;
+    display: block;
+}
+
+.cta-action {
+    position: relative;
+    color: var(--logo-color-1);
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: 0.1s linear;
+}
+
+.cta-action:active {
+    color: white;
+    transition: 0.1s linear;
+}
+
+.cta-action::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--logo-color-1);
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    transition: 0.1s linear;
+    z-index: -1;
+}
+
+.cta-action:hover::after {
+    width: 100%;
+    left: 0%;
+    transition: 0.1s linear;
+}
+
+.cta-action:active::after {
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+}
+
+.logo-color-1 {
+    color: var(--logo-color-1);
+}
+
+.hero-o {
+    position: relative;
+}
+
+.hero-o::after {
+    content: '.';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    bottom: -0.1em;
+    font-size: 0.9em;
+    color: var(--logo-color-1);
+}
