@@ -25,12 +25,26 @@ let oldclientX = -100;
 let oldclientY = -100;
 let clientX = -100;
 let clientY = -100;
-let counter = 0;
+
+let oldR = 0;
+let R = 0;
+
+let squarehover = document.querySelectorAll(".square-hover");
 
 document.addEventListener("mousemove", (e) => {
     clientX = e.clientX;
     clientY = e.clientY;
 });
+
+squarehover.forEach((el) => {
+    el.addEventListener('mouseover', () => {
+        ring.style.borderRadius = "5px";
+    })
+
+    el.addEventListener('mouseout', () => {
+        ring.style.borderRadius = "50%";
+    })
+})
 
 // function for linear interpolation of values
 const lerp = (a, b, n) => {
@@ -52,18 +66,14 @@ function loop() {
         }
     })
 
-    if (counter < 2) {
-        oldclientX = lerp(oldclientX, clientX, 0.36);
-        oldclientY = lerp(oldclientY, clientY, 0.36);
-        counter++;
-    } else {
-        oldclientX = lerp(oldclientX, clientX, 0.36);
-        oldclientY = lerp(oldclientY, clientY, 0.36);
-        counter = 0;
-    }
+    oldclientX = lerp(oldclientX, clientX, 0.36);
+    oldclientY = lerp(oldclientY, clientY, 0.36);
+
+    R = Math.atan2(clientY - oldclientY, clientX - oldclientX) * 180 / Math.PI;
+    oldR = lerp(oldR, R, 0.8);
 
     center.style.transform = `translate(${clientX}px, ${clientY}px)`;
-    ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${Math.atan2(clientY - oldclientY, clientX - oldclientX) * 180 / Math.PI}deg) scaleY(${1 - 3*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
+    ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
 
     scroll(loop);
 }
