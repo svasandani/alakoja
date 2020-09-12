@@ -16,7 +16,7 @@ function toggleVisibility() {
     }
 }
 
-/* MOUSE */
+/* MOUSE 
 
 let center = document.querySelector(".cursor-center");
 let ring = document.querySelector(".cursor-outside");
@@ -66,7 +66,7 @@ function loop() {
         }
     })
 
-    oldclientX = lerp(oldclientX, clientX, 0.36);
+    /* oldclientX = lerp(oldclientX, clientX, 0.36);
     oldclientY = lerp(oldclientY, clientY, 0.36);
 
     R = Math.atan2(clientY - oldclientY, clientX - oldclientX) * 180 / Math.PI;
@@ -74,7 +74,8 @@ function loop() {
 
     center.style.transform = `translate(${clientX}px, ${clientY}px)`;
     ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
-
+    */
+   
     scroll(loop);
 }
 
