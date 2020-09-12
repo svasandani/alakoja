@@ -70,7 +70,7 @@ function loop() {
     oldclientY = lerp(oldclientY, clientY, 0.36);
 
     R = Math.atan2(clientY - oldclientY, clientX - oldclientX) * 180 / Math.PI;
-    oldR = lerp(oldR, R, 0.8);
+    oldR = lerp(oldR, R, 0.95);
 
     center.style.transform = `translate(${clientX}px, ${clientY}px)`;
     ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
@@ -99,3 +99,17 @@ function isElementInViewport(el) {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
     );
 }
+
+/* VIDEOS */
+
+let videos = document.querySelectorAll("video.work-img");
+
+videos.forEach((v) => {
+    v.addEventListener('mouseover', () => {
+        v.play();
+    })
+
+    v.addEventListener('mouseout', () => {
+        v.pause();
+    })
+})

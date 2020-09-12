@@ -120,6 +120,34 @@ main {
     position: relative;
 }
 
+.service-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.service {
+    width: 33%;
+    margin-bottom: 1em;
+    padding-bottom: 25px;
+    padding-right: 35px;
+    display: grid;
+    grid-template-rows: 75px auto;
+}
+
+@media (max-width: 768px) {
+    .service {
+        width: 100%;
+    }
+}
+
+.service h4 {
+    margin-bottom: 0.5em;
+}
+
+.service p {
+    line-height: 2em;
+}
+
 .work-container {
     width: 100%;
     display: flex;
@@ -187,7 +215,7 @@ main {
     object-fit: cover;
 }
 
-.work-card img {
+.work-card .work-img {
     flex: 1;
     max-height: 100%;
     object-fit: cover;
