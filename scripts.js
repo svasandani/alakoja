@@ -75,7 +75,7 @@ function loop() {
     center.style.transform = `translate(${clientX}px, ${clientY}px)`;
     ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
     */
-   
+
     scroll(loop);
 }
 
@@ -114,3 +114,20 @@ videos.forEach((v) => {
         v.pause();
     })
 })
+
+/* HERO VIDEO */
+
+let toggle = 0;
+let herovid = document.querySelector(".hero-img");
+
+function showNext() {
+    if (toggle == 0) {
+        herovid.setAttribute("src", "terraling.mp4");
+        toggle = 1;
+        herovid.play();
+    } else if (toggle == 1) {
+        herovid.setAttribute("src", "nyu.mp4");
+        toggle = 0;
+        herovid.play();
+    }
+}

@@ -10,8 +10,10 @@
 </head>
 <body>
     <header>
-        <h1><span class="logo-color-1">Ala</span>k<span class="hero-o">o</span>ja</h1>
-        <h2>Transcend the ordinary.</h2>
+        <div class="header-container">
+            <h1><span class="logo-color-1">Ala</span>k<span class="hero-o">o</span>ja</h1>
+            <h2>Transcend the ordinary.</h2>
+        </div>
     </header>
     <div class="nav-btn square-hover">☰</div>
     <nav class="hidden">
@@ -24,8 +26,8 @@
         </ul>
     </nav>
     <section class="hero">
-        <video autoplay loop="true" muted="true" class="hero-img">
-            <source src="hero.mp4" type="video/mp4">
+        <video autoplay muted="true" class="hero-img" onended="showNext()">
+            <source src="nyu.mp4" type="video/mp4">
 
             <img src="https://source.unsplash.com/qWQGk5mdVBU"></img>
         </video>
