@@ -343,6 +343,26 @@ main {
     filter: grayscale() invert();
 }
 
+.career-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.career-location {
+    width: 30%;
+}
+
+.career-location h4 {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .career-location {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+
 footer {
     padding: 7vh;
     height: 30vh;
