@@ -150,7 +150,7 @@ main {
     padding-bottom: 85px;
     padding-right: 85px;
     display: grid;
-    grid-template-rows: 200px 50px auto;
+    grid-template-rows: 200px auto auto;
     grid-gap: 25px;
 }
 
@@ -171,6 +171,7 @@ main {
     height: 100%;
     overflow: hidden;
     padding: 0 20px;
+    padding-bottom: 10px;
     display: grid;
     justify-content: center;
     align-items: center;
