@@ -147,6 +147,10 @@ function showNext() {
         herovid.play();
     } else if (toggle == 1) {
         herovid.setAttribute("src", "nyu.mp4");
+        toggle = 2;
+        herovid.play();
+    } else if (toggle == 2) {
+        herovid.setAttribute("src", "codecademy.mp4");
         toggle = 0;
         herovid.play();
     }
