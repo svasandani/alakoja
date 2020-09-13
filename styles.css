@@ -70,20 +70,26 @@ header {
     top: 0;
     left: 0;
     z-index: 99;
-    height: 100vh;
+    height: 30vh;
     width: 100%;
     display: grid;
-    grid-template: 1fr / 1fr;
-    justify-content: center;
+    grid-template: 20vh 1fr / 1fr;
     align-items: center;
-    text-align: center;
+    overflow: hidden;
 }
 
 .header-container {
-    background: #ffffff87;
     padding: 4%;
-    margin: 0% 15%;
     max-width: 100%;
+    z-index: 98;
+}
+
+.header-diag {
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    background: white;
+    clip-path: polygon(0 0, 0 100%, 100% 0);
 }
 
 header h1 {
@@ -104,7 +110,7 @@ nav {
 
 @media (max-width: 768px) {
     header {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     nav {
