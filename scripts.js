@@ -57,6 +57,8 @@ var scroll = window.requestAnimationFrame || function(callback){ window.setTimeo
 
 let floatUp = Array.from(document.querySelectorAll(".float-up"));
 
+let header = document.querySelector("header");
+
 function loop() {
 
     floatUp.forEach((el) => {
@@ -75,6 +77,15 @@ function loop() {
     center.style.transform = `translate(${clientX}px, ${clientY}px)`;
     ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
     */
+
+    let offset = window.scrollY - (window.innerHeight * 0.7) - 5;
+
+    if (offset < 0) {
+        header.style.transform = "translateY(0px)";
+    } else {
+        console.log( window.scrollY - (window.innerHeight * 0.7) );
+        header.style.transform = "translateY(-" + offset + "px)";
+    }
 
     scroll(loop);
 }
