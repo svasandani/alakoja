@@ -73,13 +73,14 @@ header {
     height: 30vh;
     width: 100%;
     display: grid;
-    grid-template: 20vh 1fr / 1fr;
+    grid-template: 17.5vh 1fr / 1fr;
     align-items: center;
     overflow: hidden;
 }
 
 .header-container {
     padding: 4%;
+    padding-bottom: 0;
     max-width: 100%;
     z-index: 98;
 }
@@ -110,7 +111,7 @@ nav {
 
 @media (max-width: 768px) {
     header {
-        font-size: 0.8em;
+        font-size: 0.75em;
     }
 
     nav {
