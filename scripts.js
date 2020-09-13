@@ -1,4 +1,5 @@
 /* NAV BTN */
+let nav = document.querySelector("nav");
 
 document.querySelector(".nav-btn").addEventListener('click', toggleVisibility)
 
@@ -7,8 +8,6 @@ document.querySelectorAll("nav a").forEach((navlink) => {
 })
 
 function toggleVisibility() {
-    let nav = document.querySelector("nav");
-
     if (nav.classList.contains("hidden")) {
         nav.classList.remove("hidden");
     } else {
@@ -59,6 +58,9 @@ let floatUp = Array.from(document.querySelectorAll(".float-up"));
 
 let header = document.querySelector("header");
 
+let oldoffset = 0;
+let offset = 0;
+
 function loop() {
 
     floatUp.forEach((el) => {
@@ -78,13 +80,20 @@ function loop() {
     ring.style.transform = `translate(${lerp(oldclientX, clientX, 0.1)}px, ${lerp(oldclientY, clientY, 0.1)}px) rotate(${oldR}deg) scaleY(${1 - 4*((Math.abs(clientX - oldclientX) + Math.abs(clientY - oldclientY)) / (oldclientX + oldclientY))})`;
     */
 
-    let offset = window.scrollY - (window.innerHeight * 0.7) - 5;
+    oldoffset = offset;
+
+    // header scroll bar
+    offset = window.scrollY - (window.innerHeight * (0.7 - 0.115)) - 5;
 
     if (offset < 0) {
         header.style.transform = "translateY(0px)";
     } else {
-        console.log( window.scrollY - (window.innerHeight * 0.7) );
         header.style.transform = "translateY(-" + offset + "px)";
+    }
+
+    // nav function to hide on scroll
+    if (oldoffset != offset) {
+        nav.classList.add("hidden");
     }
 
     scroll(loop);
