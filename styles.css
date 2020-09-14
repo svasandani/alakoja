@@ -231,7 +231,7 @@ main {
     background: var(--bg-color-1);
 }
 
-#work {
+.work-section {
     background: var(--bg-color-1);
 }
 
@@ -239,7 +239,6 @@ main {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    background: var(--bg-color-1);
 }
 
 .work-card {
