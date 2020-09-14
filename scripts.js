@@ -137,16 +137,16 @@ videos.forEach((v) => {
 
 /* HERO VIDEO */
 
-let toggle = 0;
+let toggle = 1;
 let herovid = document.querySelector(".hero-img");
 
 function showNext() {
     if (toggle == 0) {
-        herovid.setAttribute("src", "terraling.mp4");
+        herovid.setAttribute("src", "nyu.mp4");
         toggle = 1;
         herovid.play();
     } else if (toggle == 1) {
-        herovid.setAttribute("src", "nyu.mp4");
+        herovid.setAttribute("src", "terraling.mp4");
         toggle = 2;
         herovid.play();
     } else if (toggle == 2) {

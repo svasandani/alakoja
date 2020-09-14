@@ -40,8 +40,8 @@ h3 {
 }
 
 h4 {
-    font-weight: bold;
-    font-size: 1.5em;
+    font-family: "Gilda Display";
+    font-size: 2em;
 }
 
 a {
@@ -260,6 +260,21 @@ main {
     transition: 0.1s linear;
 }
 
+.work-card h4::before {
+    content: attr(data-name);
+    font-size: 20em;
+    position: absolute;
+    bottom: -0.3em;
+    left: 0px;
+    white-space: nowrap;
+    font-family: "Kumbh Sans";
+    opacity: 0;
+    font-weight: 900;
+    letter-spacing: -15px;
+    pointer-events: none;
+    transition: 0.1s linear;
+}
+
 .work-card:hover h4 {
     left: 60px;
     transition: 0.1s linear;
@@ -272,6 +287,11 @@ main {
 
 .work-card:active h4::after {
     width: 100%;
+    transition: 0.1s linear;
+}
+
+.work-card:hover h4::before {
+    opacity: 0.1;
     transition: 0.1s linear;
 }
 
@@ -293,6 +313,10 @@ main {
 }
 
 @media (max-width: 768px) {
+    .work-card h4::before {
+        display: none;
+    }
+
     .work-card {
         width: 100%;
     }
