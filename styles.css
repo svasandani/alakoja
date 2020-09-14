@@ -30,7 +30,9 @@ body {
 /* heading */
 
 h1 {
-    font-family: "Gilda Display";
+    /* font-family: "Gilda Display"; */
+    font-family: "BioRhyme Expanded";
+    font-weight: 200;
     font-size: 4.5em;
     margin-bottom: 10px;
 }
@@ -47,7 +49,9 @@ h3 {
 }
 
 h4 {
-    font-family: "Gilda Display";
+    /* font-family: "Gilda Display"; */
+    font-family: "BioRhyme";
+    font-weight: 300;
     font-size: 2em;
 }
 
@@ -466,16 +470,19 @@ footer {
 
 .preloader .hero-o::after {
     animation: bounce-o 2s ease-out;
+    animation-fill-mode: forwards;
 }
 
 @keyframes bounce-o {
     0% {
-        bottom: -0.4em;
+        /* bottom: -0.4em; */
+        bottom: -0.2em;
         opacity: 0;
     }
 
     100% {
-        bottom: -0.1em;
+        /* bottom: -0.1em; */
+        bottom: 0.1em;
         opacity: 1;
     }
 }
@@ -582,7 +589,8 @@ nav h1 a::after {
     left: 0;
     width: 100%;
     text-align: center;
-    bottom: -0.1em;
+    /* bottom: -0.1em; */
+    bottom: 0.1em;
     font-size: 0.9em;
     color: var(--logo-color-1);
 }
