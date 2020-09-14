@@ -167,3 +167,21 @@ function onloadfunc() {
     
     document.body.style.overflow = "auto";
 }
+
+/* CLIENTS */
+let clients = document.querySelectorAll(".client");
+
+clients.forEach((client) => {
+    let imgtag = client.getAttribute("data-bg");
+
+    let img = document.querySelector(".client-img-bg ." + imgtag);
+
+    client.addEventListener('mouseover', () => {
+        console.log(client);
+        img.style.opacity = "0.24";
+    })
+
+    client.addEventListener('mouseout', () => {
+        img.style.opacity = "0";
+    })
+});

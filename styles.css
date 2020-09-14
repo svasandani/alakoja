@@ -3,6 +3,7 @@
     --contrast-color: #d4e4ff;
     --bg-color: white;
     --bg-color-1: #cfcfcf;
+    --bg-color-2: #f3c8d1;
     --text-color: black;
 }
 
@@ -20,6 +21,7 @@ html {
 html.dark-mode {
     --bg-color: black;
     --bg-color-1: #121212;
+    --bg-color-2: var(--logo-color-1);
     --text-color: white;
 }
 
@@ -59,7 +61,7 @@ h4 {
     /* font-family: "Gilda Display"; */
     font-family: "BioRhyme";
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 a {
@@ -269,7 +271,7 @@ main {
 .work-card h4 {
     position: absolute;
     bottom: 1.3em;
-    left: 50px;
+    left: 25px;
     color: white;
     z-index: 2;
     transition: 0.1s linear;
@@ -358,23 +360,46 @@ main {
 }
 
 .work-client-diag {
+    position: absolute;
     height: 15vh;
+    width: 100%;
     padding-top: 25vh;
     margin-bottom: -3px;
     clip-path: polygon(0 0, 0 100%, 180% 0);
     background: var(--bg-color-1);
+    z-index: 5;
+}
+
+.client-section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 25vh;
+    padding-bottom: 15vh;
+}
+
+.client-img-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.client-img-bg img {
+    position: absolute;
+    object-fit: cover;
+    height: calc(100% + 30vh);
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.1s linear;
 }
 
 .client-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
-}
-
-@media (max-width: 768px) {
-    .client-container {
-        grid-template-columns: 1fr;
-    }
 }
 
 .client-container h4 {
@@ -400,8 +425,36 @@ main {
     transition: 0.1s linear;
 }
 
+@media (max-width: 768px) {
+    .client-img-bg {
+        display: none;
+    }
+
+    .client-container {
+        grid-template-columns: 1fr;
+    }
+
+    .client img {
+        filter: grayscale() opacity(1);
+    }
+}
+
 .dark-mode .client img {
     filter: grayscale() invert();
+}
+
+.client-team-diag {
+    height: 15vh;
+    width: 100%;
+    margin-top: -15vh;
+    margin-bottom: -3px;
+    clip-path: polygon(0 0, 120% 100%, 0 100%);
+    background: var(--bg-color-2);
+    z-index: 6;
+}
+
+.team-section {
+    background: var(--bg-color-2);
 }
 
 .career-container {
@@ -478,20 +531,21 @@ footer {
 }
 
 .preloader .hero-o::after {
-    animation: bounce-o 2s ease-out;
+    animation: bounce-o 1.1s ease-out;
+    bottom: 0.1em;
     animation-fill-mode: forwards;
 }
 
 @keyframes bounce-o {
     0% {
         /* bottom: -0.4em; */
-        bottom: -0.2em;
+        transform: translateY(25px);
         opacity: 0;
     }
 
     100% {
         /* bottom: -0.1em; */
-        bottom: 0.1em;
+        transform: translateY(0px);
         opacity: 1;
     }
 }
