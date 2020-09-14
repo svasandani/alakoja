@@ -2,6 +2,7 @@
     --logo-color-1: #a33841;
     --contrast-color: #d4e4ff;
     --bg-color: white;
+    --bg-color-1: #cfcfcf;
     --text-color: black;
 }
 
@@ -18,6 +19,7 @@ html {
 
 html.dark-mode {
     --bg-color: black;
+    --bg-color-1: #121212;
     --text-color: white;
 }
 
@@ -40,7 +42,7 @@ h2 {
 h3 {
     font-size: 2.2em;
     font-weight: bold;
-    margin-bottom: 1.2em;
+    padding-bottom: 1.2em;
     padding-top: 10vh;
 }
 
@@ -142,11 +144,6 @@ nav ul {
     grid-gap: 10px;
 }
 
-main {
-    padding: 5% 7.5vh;
-    z-index: 2;
-}
-
 .hero {
     height: 90vh;
     margin-top: 10vh;
@@ -169,7 +166,14 @@ main {
 }
 
 main {
+    padding: 5% 0;
     background: var(--bg-color);
+    z-index: 2;
+}
+
+.main-padding {
+    padding-left: 7.5vh;
+    padding-right: 7.5vh;
 }
 
 .service-container {
@@ -220,10 +224,22 @@ main {
     line-height: 2em;
 }
 
+.service-work-diag {
+    height: 12vh;
+    margin-bottom: -3px;
+    clip-path: polygon(0 0, 0 100%, 110% 100%);
+    background: var(--bg-color-1);
+}
+
+#work {
+    background: var(--bg-color-1);
+}
+
 .work-container {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    background: var(--bg-color-1);
 }
 
 .work-card {
@@ -327,6 +343,14 @@ main {
         height: 100%;
         width: auto;
     }
+}
+
+.work-client-diag {
+    height: 15vh;
+    padding-top: 25vh;
+    margin-bottom: -3px;
+    clip-path: polygon(0 0, 0 100%, 180% 0);
+    background: var(--bg-color-1);
 }
 
 .client-container {
