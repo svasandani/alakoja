@@ -21,11 +21,16 @@ html.dark-mode {
     --text-color: white;
 }
 
+body {
+    overflow: hidden;
+}
+
 /* heading */
 
 h1 {
     font-family: "Gilda Display";
     font-size: 4.5em;
+    margin-bottom: 10px;
 }
 
 h2 {
@@ -100,10 +105,6 @@ header {
     height: 100%;
     background: var(--bg-color);
     clip-path: polygon(0 0, 0 100%, 100% 0);
-}
-
-header h1 {
-    margin-bottom: 10px;
 }
 
 nav {
@@ -246,7 +247,7 @@ main {
     color: white;
     z-index: 2;
     transition: 0.1s linear;
-    
+    pointer-events: none;
 }
 
 .work-card h4::after {
@@ -397,6 +398,70 @@ footer {
 }
 
 /* util */
+
+.preloader {
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    display: grid;
+    grid-template-rows: 1fr auto auto 1fr;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+}
+
+.preloader :not(.hero-o) {
+    animation: fade-in 2s linear;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.preloader .hero-o {
+    color: var(--text-color);
+}
+
+.preloader .hero-o::after {
+    animation: bounce-o 2s ease-out;
+}
+
+@keyframes bounce-o {
+    0% {
+        bottom: -0.4em;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: -0.1em;
+        opacity: 1;
+    }
+}
+
+.preloader.ready {
+    pointer-events: none;
+    animation: fade-out 2s linear;
+    animation-fill-mode: forwards;
+}
 
 .nav-btn {
     position: fixed;

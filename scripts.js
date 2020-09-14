@@ -155,3 +155,15 @@ function showNext() {
         herovid.play();
     }
 }
+
+/* PRELOADER */
+
+window.addEventListener('load', onloadfunc);
+
+function onloadfunc() {
+    let preloader = document.querySelector(".preloader");
+
+    preloader.classList.add("ready");
+    
+    document.body.style.overflow = "auto";
+}
