@@ -34,7 +34,14 @@ h1 {
     font-family: "BioRhyme Expanded";
     font-weight: 200;
     font-size: 4.5em;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-family: "BioRhyme";
+        margin-bottom: 10px;
+    }
 }
 
 h2 {
@@ -282,11 +289,13 @@ main {
 
 .work-card h4::before {
     content: attr(data-name);
-    font-size: 20em;
+    font-size: 10em;
     position: absolute;
-    bottom: -0.3em;
+    bottom: -2.2rem;
     left: 0px;
-    white-space: nowrap;
+    word-wrap: break-word;
+    max-width: 40vw;
+    line-height: 0.55em;
     font-family: "Kumbh Sans";
     opacity: 0;
     font-weight: 900;
@@ -489,8 +498,24 @@ footer {
 
 .preloader.ready {
     pointer-events: none;
-    animation: fade-out 2s linear;
+    animation: slide-out 1.3s cubic-bezier(0.075, 0.820, 0.165, 1.000);
     animation-fill-mode: forwards;
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0;
+    }
 }
 
 .nav-btn {
