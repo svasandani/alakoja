@@ -26,11 +26,11 @@
             <h3>Ready to take the next step? Just fill out this form.</h3>
             <form class="contact-form">
                 <label for="name">What's your name?</label>
-                <input name="name" type="text" placeholder="Dr. Jekyll" required/>
+                <input class="change-text" data-ph="true" data-text="Dr. Jekyll|Sherlock Holmes|Alice Liddell|Dorian Gray" name="name" type="text" required/>
                 <label for="email">Your email address?</label>
-                <input name="email" type="email" placeholder="hydeing_in_plain_sight@example.net" required/>
+                <input class="change-text" data-ph="true" data-text="hyde_your_bad_side@example.net|baker_at_holmes@example.com|hats_off_to_alice@example.org|gray_hairs_begone@example.net" name="email" type="email" required/>
                 <label for="info">What can we do for you?</label>
-                <textarea name="info" type="text" placeholder="I need a website to sell my newest product - a potion to remove the evil side of one's nature!" required></textarea>
+                <textarea class="change-text" data-ph="true" data-text="I need to revamp my website to sell my newest product - a potion to hide your evil acne!|I'm starting a new home bakery company, and I need to make a good first impression. Can you help with that?|My new psychedelic tea company is just starting to take off, but we need a brand identity, and fast! Please do help us.|I've found the cure to aging, I swear, but I need to get the word out there. I've been told you can help with that." name="info" type="text" required></textarea>
                 <button type="submit">Let's see what magic we can whip up.</button>
             </form>
             <a href="mailto:consulting@alakoja.com">You can also send us an email by clicking here.</a>
@@ -44,12 +44,22 @@
     <svg class="fader"></svg>
 </body>
 <script type="text/javascript">
-    let preloadertext = document.querySelector(".preloader .change-text");
-    let options = preloadertext.getAttribute("data-text").split("|");
-    let index = Math.floor(Math.random() * options.length);
-    preloadertext.innerHTML = options[index];
+    let preloadertext = document.querySelectorAll(".change-text");
 
-    console.log(options.length);
+    let setIndex = -1;
+
+    preloadertext.forEach((pt) => {
+        let options = pt.getAttribute("data-text").split("|");
+        if (pt.getAttribute("data-ph") === "true") {
+            let index = setIndex != -1 ? setIndex : Math.floor(Math.random() * options.length);
+            pt.setAttribute("placeholder", options[index]);
+            setIndex = index;
+        } else {
+            let index = Math.floor(Math.random() * options.length);
+            pt.innerHTML = options[index];
+        }
+    })
 </script>
 <script type="text/javascript" src="/preloader.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 </html>

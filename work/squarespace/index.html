@@ -33,12 +33,17 @@
     <svg class="fader"></svg>
 </body>
 <script type="text/javascript">
-    let preloadertext = document.querySelector(".preloader .change-text");
-    let options = preloadertext.getAttribute("data-text").split("|");
-    let index = Math.floor(Math.random() * options.length);
-    preloadertext.innerHTML = options[index];
+    let preloadertext = document.querySelectorAll(".change-text");
 
-    console.log(options.length);
+    preloadertext.forEach((pt) => {
+        let options = pt.getAttribute("data-text").split("|");
+        let index = Math.floor(Math.random() * options.length);
+        if (pt.getAttribute("data-ph") === "true") {
+            console.log(pt);
+        } else {
+            pt.innerHTML = options[index];
+        }
+    })
 </script>
 <script type="text/javascript" src="/preloader.js"></script>
 </html>
