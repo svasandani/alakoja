@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <div class="preloader">
         <div></div>
         <h1><span class="logo-color-1">Ala</span>k<span class="hero-o">o</span>ja</h1>
-        <p data-text="Balancing impossible rock structures...|Entering the Avatar state...|Breaking the cycle of rebirth...|Achieving Nirvana...|Grabbing some buttered toast...|Doing some nerdy things..."></p>
+        <p class="change-text" data-text="Balancing impossible rock structures...|Entering the Avatar state...|Breaking the cycle of rebirth...|Achieving Nirvana...|Grabbing some buttered toast...|Doing some nerdy things..."></p>
     </div>
     <header>
         <div class="header-container">
@@ -145,14 +145,15 @@
         <div class="work-client-diag"></div>
         <section class="client-section main-padding">
             <div class="client-img-bg">
-                <img class="nba" src="terraling-render.png" />
+                <img class="nba" src="clients/nba.jpg" />
                 <img class="bloomberg" src="nyu-render.png" />
+                <img class="gameofthrones" src="clients/gameofthrones.jpg" />
             </div>
             <h3 id="clients" class="float-up">Some clients we've worked with</h3>
             <div class="client-container ">
                 <div class="client" data-bg="nba"><!--h4>NBA</h4--><img class="float-up" src="clients/nbalogo.png" /></div>
                 <div class="client" data-bg="bloomberg"><!--h4>Bloomberg</h4--><img class="float-up" src="clients/bloomberglogo.png" /></div>
-                <div class="client"><!--h4>Game of Thrones</h4--><img class="float-up" src="clients/gameofthroneslogo.png" /></div>
+                <div class="client" data-bg="gameofthrones"><!--h4>Game of Thrones</h4--><img class="float-up" src="clients/gameofthroneslogo.png" /></div>
                 <div class="client"><!--h4>CenturyLink</h4--><img class="float-up" src="clients/centurylinklogo.png" /></div>
                 <div class="client"><!--h4>Wall Street Journal</h4--><img class="float-up" src="clients/wallstreetjournallogo.png" /></div>
                 <div class="client"><!--h4>MLB</h4--><img class="float-up" src="clients/mlblogo.png" /></div>
@@ -200,7 +201,7 @@
 </body>
 
 <script type="text/javascript">
-    let preloadertext = document.querySelector(".preloader p");
+    let preloadertext = document.querySelector(".preloader .change-text");
     let options = preloadertext.getAttribute("data-text").split("|");
     let index = Math.floor(Math.random() * options.length);
     preloadertext.innerHTML = options[index];

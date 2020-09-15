@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <div class="preloader">
         <div></div>
         <h1><span class="logo-color-1">Say</span></h1>
-        <h1>hello.</h1>
+        <h1 class="change-text" data-text="hi!|hello!|bonjour!|hola!|cheese!|what?|less.">hello.</h1>
     </div>
     <header style="position: absolute;">
         <div class="header-container">
@@ -43,5 +43,13 @@
     </footer>
     <svg class="fader"></svg>
 </body>
+<script type="text/javascript">
+    let preloadertext = document.querySelector(".preloader .change-text");
+    let options = preloadertext.getAttribute("data-text").split("|");
+    let index = Math.floor(Math.random() * options.length);
+    preloadertext.innerHTML = options[index];
+
+    console.log(options.length);
+</script>
 <script type="text/javascript" src="/preloader.js"></script>
 </html>

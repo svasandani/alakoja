@@ -402,28 +402,35 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
+    pointer-events: none;
 }
 
 .client-container h4 {
     font-weight: normal;
 }
 
+.client-container:hover .client img {
+    opacity: 0.1;
+    transition: 0.1s linear;
+}
+
 .client {
     height: 150px;
     padding: 40px;
     overflow: hidden;
+    pointer-events: auto;
 }
 
 .client img {
     object-fit: contain;
     width: 100%;
     height: 100%;
-    filter: grayscale() opacity(0.5);
+    filter: grayscale();
     transition: 0.1s linear;
 }
 
-.client:hover img {
-    filter: grayscale() opacity(1);
+.client-container:hover .client:hover img {
+    opacity: 1;
     transition: 0.1s linear;
 }
 
@@ -437,7 +444,8 @@ main {
     }
 
     .client img {
-        filter: grayscale() opacity(1);
+        filter: grayscale();
+        opacity: 1;
     }
 }
 

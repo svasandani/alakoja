@@ -165,7 +165,7 @@ clients.forEach((client) => {
     let img = document.querySelector(".client-img-bg ." + imgtag);
 
     client.addEventListener('mouseover', () => {
-        img.style.opacity = "0.24";
+        img.style.opacity = "0.44";
     })
 
     client.addEventListener('mouseout', () => {
