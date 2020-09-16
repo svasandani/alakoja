@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
     section.style.opacity = "0";
 
     setTimeout(() => {
-        section.innerHTML = "<h3>Transmission received. Awaiting response...</h3><p>Check your inbox soon — it shouldn't take more than 2 business days. <a href=\"/\">Click here to head back to base.</a></p>";
+        section.innerHTML = "<h3>Transmission received. Awaiting response...</h3><p>Check your inbox soon — it shouldn't take more than 2 business days.<br><a href=\"/\">Click here to head back to base.</a></p>";
 
         let a = section.querySelector("a");
 
