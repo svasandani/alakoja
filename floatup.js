@@ -31,11 +31,11 @@ function loop() {
     */
 
     if (haswork) {
-        try {
-            doWork();
-        } catch(e) {
-            haswork = false;
-        }
+      try {
+          doWork();
+      } catch(e) {
+          haswork = false;
+      }
     }
 
     scroll(loop);

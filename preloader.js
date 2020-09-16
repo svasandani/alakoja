@@ -28,19 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach((link) => {
         if (link.hostname !== window.location.hostname || link.pathname === window.location.pathname) return;
-        link.addEventListener('click', (e) => {
-            const listener = () => {
-                window.location = link.href;
-                fader.removeEventListener('animationend', listener);
-            };
-
-            fader.addEventListener('animationend', listener);
-
-            e.preventDefault();
-            fader.classList.add("fade-in");
-        });
+        link.addEventListener('click', (fader, link, e) => { addFadeOut(fader,link,e); });
     });
 });
+
+function addFadeOut(fader, link, e) {
+    const listener = () => {
+        window.location = link.href;
+        fader.removeEventListener('animationend', listener);
+    };
+
+    fader.addEventListener('animationend', listener);
+
+    e.preventDefault();
+    fader.classList.add("fade-in");
+}
 
 window.addEventListener('pageshow', (e) => {
     if (!e.persisted) {
