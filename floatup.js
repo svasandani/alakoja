@@ -34,7 +34,7 @@ function loop() {
         try {
             doWork();
         } catch(e) {
-            hasword = false;
+            haswork = false;
         }
     }
 

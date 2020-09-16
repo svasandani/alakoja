@@ -29,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     links.forEach((link) => {
         if (link.hostname !== window.location.hostname || link.pathname === window.location.pathname) return;
         link.addEventListener('click', (e) => {
-
-            console.log("hi");
-
             const listener = () => {
                 window.location = link.href;
                 fader.removeEventListener('animationend', listener);
@@ -51,4 +48,4 @@ window.addEventListener('pageshow', (e) => {
     }
     let fader = document.querySelector(".fader");
     fader.classList.remove("fade-in");
-  });
+});
