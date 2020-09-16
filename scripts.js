@@ -1,7 +1,9 @@
 /* NAV BTN */
 let nav = document.querySelector("nav");
 
-document.querySelector(".nav-btn").addEventListener('click', toggleVisibility)
+let navbtn = document.querySelector(".nav-btn");
+
+navbtn.addEventListener('click', toggleVisibility)
 
 document.querySelectorAll("nav a").forEach((navlink) => {
     navlink.addEventListener('click', toggleVisibility);
@@ -9,10 +11,22 @@ document.querySelectorAll("nav a").forEach((navlink) => {
 
 function toggleVisibility() {
     if (nav.classList.contains("hidden")) {
+        fadeNavBtn("✕");
         nav.classList.remove("hidden");
     } else {
+        fadeNavBtn("☰");
         nav.classList.add("hidden");
     }
+}
+
+function fadeNavBtn(text) {
+    navbtn.style.opacity = "0";
+    setTimeout(() => {
+        navbtn.innerHTML = text;
+        setTimeout(() => {
+            navbtn.style.opacity = "1";
+        }, 150);
+    }, 150);
 }
 
 /* MOUSE 
