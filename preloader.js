@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach((link) => {
         if (link.hostname !== window.location.hostname || link.pathname === window.location.pathname) return;
-        link.addEventListener('click', (fader, link, e) => { addFadeOut(fader,link,e); });
+        link.addEventListener('click', (e) => { addFadeOut(fader,link,e); });
     });
 });
 
