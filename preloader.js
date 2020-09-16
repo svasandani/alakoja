@@ -14,6 +14,8 @@ function onloadfunc() {
 
     h1.addEventListener('animationend', listener);
     
+    setTimeout(() => {preloader.classList.add("ready");}, 5000);
+    
     document.body.style.overflow = "auto";
 }
 
