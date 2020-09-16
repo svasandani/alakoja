@@ -14,11 +14,11 @@ function setDarkmode(darkmodebtn) {
     if (darkmode) {
         document.documentElement.classList.add("dark-mode");
         st.setItem('darkmode', 'true');
-        darkmodebtn.innerHTML = "In brightest day";
+        if (darkmodebtn != null) { darkmodebtn.innerHTML = "In brightest day"; }
     } else {
         document.documentElement.classList.remove("dark-mode");
         st.setItem('darkmode', 'false');
-        darkmodebtn.innerHTML = "In blackest night";
+        if (darkmodebtn != null) { darkmodebtn.innerHTML = "In blackest night"; }
     }
 }
 
